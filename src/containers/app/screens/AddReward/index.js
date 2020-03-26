@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, ScrollView } from 'react-native';
 
 import Layout from '../../../../components/shared/Layout';
 import Input from '../../../../components/common/Input';
@@ -90,31 +90,33 @@ class AddReward extends React.PureComponent {
 
     return (
       <Layout style={styles.screen}>
-        <Input
-          underlined
-          value={title}
-          onChangeText={(val) => this.handleInputChange('title', val)}
-          placeholder={`Title (e.g. ${this.rewardTitle})`}
-          placeholderTextColor={colors.grey}
-        />
+        <ScrollView keyboardShouldPersistTaps="never">
+          <Input
+            underlined
+            value={title}
+            onChangeText={(val) => this.handleInputChange('title', val)}
+            placeholder={`Title (e.g. ${this.rewardTitle})`}
+            placeholderTextColor={colors.grey}
+          />
 
-        <OptionPicker
-          headerStyle={styles.input}
-          onChange={(val) => this.handleInputChange('timePoints', val)}
-          value={timePoints}
-          placeholder="How much time will it take?"
-          options={timeOptions}
-        />
+          <OptionPicker
+            headerStyle={styles.input}
+            onChange={(val) => this.handleInputChange('timePoints', val)}
+            value={timePoints}
+            placeholder="How much time will it take?"
+            options={timeOptions}
+          />
 
-        <OptionPicker
-          headerStyle={styles.input}
-          onChange={(val) => this.handleInputChange('moneyPoints', val)}
-          value={moneyPoints}
-          placeholder="How much money will it take?"
-          options={moneyOptions}
-        />
+          <OptionPicker
+            headerStyle={styles.input}
+            onChange={(val) => this.handleInputChange('moneyPoints', val)}
+            value={moneyPoints}
+            placeholder="How much money will it take?"
+            options={moneyOptions}
+          />
 
-        <Text style={styles.overallPoints}>{`Overall points required: ${timePoints + moneyPoints}`}</Text>
+          <Text style={styles.overallPoints}>{`Overall points required: ${timePoints + moneyPoints}`}</Text>
+        </ScrollView>
       </Layout>
     );
   }
