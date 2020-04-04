@@ -2,6 +2,7 @@
   "expo": {
     "name": "Prudost",
     "slug": "prudost",
+    "description": "Prudost aims to help people to achieve their goals by splitting them into tasks and getting rewards for showing progress.",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

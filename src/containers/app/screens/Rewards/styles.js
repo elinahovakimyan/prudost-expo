@@ -4,6 +4,7 @@ import { colors } from '../../../../utils';
 
 export const styles = StyleSheet.create({
   screen: {
+    height: '100%',
     backgroundColor: colors.lightGrey,
     paddingHorizontal: 0,
   },

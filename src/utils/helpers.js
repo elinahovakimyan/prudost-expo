@@ -30,3 +30,20 @@ export const formatDate = (date) => {
   }
   return null;
 };
+
+export const formatServerError = (error) => {
+  const fields = Object.keys(error);
+  const messages = [];
+
+  fields.forEach((fieldName) => {
+    const message = error[fieldName];
+
+    if (fieldName === 'non_field_errors') {
+      messages.push(`${message}`);
+    } else {
+      messages.push(`${message} (${fieldName})`);
+    }
+  });
+
+  return messages.join(' ~ ');
+};

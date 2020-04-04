@@ -132,7 +132,7 @@ const MainGoals = (props) => {
         onOptionPress={() => {}}
       />
 
-      <AddButton onPress={handleAddGoal} bottomSpace={155} />
+      <AddButton onPress={handleAddGoal} />
     </Layout>
   );
 };

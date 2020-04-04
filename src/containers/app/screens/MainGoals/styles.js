@@ -4,6 +4,7 @@ import { colors } from '../../../../utils';
 
 export const styles = StyleSheet.create({
   screen: {
+    height: '100%',
     backgroundColor: colors.lightGrey,
     paddingHorizontal: 0,
     position: 'relative',
@@ -45,7 +46,7 @@ export const styles = StyleSheet.create({
     height: 16,
   },
   footer: {
-    height: 500,
+    height: 400,
   },
   emptyText: {
     textAlign: 'center',

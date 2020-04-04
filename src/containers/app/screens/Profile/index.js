@@ -78,49 +78,50 @@ class Profile extends React.PureComponent {
     }
 
     return (
-      <View style={styles.screen}>
-        <ScrollView contentContainerStyle={styles.mainContainer}>
-          <View>
-            <View style={styles.content}>
-              <Score title={`${profile.name || 'Unknown'}, your current score is:`} score={profile.score} />
-            </View>
-
-            <View style={styles.listContainer}>
-              <List style={styles.list} list={links} />
-            </View>
+    // <View style={styles.screen}>
+      <ScrollView contentContainerStyle={styles.mainContainer}>
+        <View>
+          <View style={styles.content}>
+            <Score title={`${profile.name || 'Unknown'}, your score is:`} score={profile.score} />
           </View>
 
-          <View style={styles.buttonContainer}>
-            <Button onPress={this.handleLogout} theme="dark">Log out</Button>
+          <View style={styles.listContainer}>
+            <List style={styles.list} list={links} />
+          </View>
+        </View>
 
-            <View style={styles.footer}>
-              <Text
-                style={[styles.link, styles.rightAlign]}
-                onPress={() => this.showWebview(privacyUrl)}
-              >
+        <View style={styles.buttonContainer}>
+          <Button onPress={this.handleLogout} theme="dark">Log out</Button>
+
+          <View style={styles.footer}>
+            <Text
+              style={[styles.link, styles.rightAlign]}
+              onPress={() => this.showWebview(privacyUrl)}
+            >
               Privacy Policy
-              </Text>
-              <View style={styles.circle} />
-              <Text
-                style={styles.link}
-                onPress={() => this.showWebview(termsUrl)}
-              >
+            </Text>
+            <View style={styles.circle} />
+            <Text
+              style={styles.link}
+              onPress={() => this.showWebview(termsUrl)}
+            >
+
               Terms & Conditions
-              </Text>
-            </View>
+            </Text>
           </View>
+        </View>
 
 
-          <Pricing
-            isVisible={isPricingVisible}
-            onClose={() => this.togglePricingModal(false)}
-          />
-        </ScrollView>
+        <Pricing
+          isVisible={isPricingVisible}
+          onClose={() => this.togglePricingModal(false)}
+        />
 
         {showWebview && currentWebviewUrl && (
           <WebviewComponent key={currentWebviewUrl} uri={currentWebviewUrl} />
         )}
-      </View>
+      </ScrollView>
+    // </View>
     );
   }
 }

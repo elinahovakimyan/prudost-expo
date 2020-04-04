@@ -60,7 +60,7 @@ import {
   APP_GET_ALL_TASKS_ERROR,
   APP_GET_ALL_TASKS_REQUEST,
 } from './constants';
-import { request } from '../../../utils';
+import { request, formatServerError } from '../../../utils';
 
 
 function getProfile() {
@@ -220,7 +220,7 @@ function* handleAddGoal({ goal }) {
     }
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   } catch (error) {
-    yield put({ type: APP_ADD_GOAL_ERROR, error: 'Something went wrong. Please try again.' });
+    yield put({ type: APP_ADD_GOAL_ERROR, error: error.response?.data ? formatServerError(error.response?.data) : 'Something went wrong. Please try again.' });
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   }
 }
@@ -241,7 +241,7 @@ function* handleUpdateGoal({ goal }) {
     }
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   } catch (error) {
-    yield put({ type: APP_UPDATE_GOAL_ERROR, error: "Can't update a goal." });
+    yield put({ type: APP_UPDATE_GOAL_ERROR, error: error.response?.data ? formatServerError(error.response?.data) : "Can't update a goal." });
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   }
 }
@@ -402,7 +402,7 @@ function* handleAddReward({ reward }) {
   } catch (error) {
     yield put({
       type: APP_ADD_REWARD_ERROR,
-      error: "Can't add a goal.",
+      error: error.response?.data ? formatServerError(error.response?.data) : "Can't add a reward.",
     });
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   }
@@ -422,7 +422,7 @@ function* handleUpdateReward({ reward }) {
     }
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   } catch (error) {
-    yield put({ type: APP_UPDATE_REWARD_ERROR, error: "Can't update the reward." });
+    yield put({ type: APP_UPDATE_REWARD_ERROR, error: error.response?.data ? formatServerError(error.response?.data) : "Can't update the reward." });
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   }
 }
