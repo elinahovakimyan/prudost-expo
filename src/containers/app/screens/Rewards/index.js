@@ -64,11 +64,11 @@ const Rewards = (props) => {
   };
 
   const handleAddReward = () => {
-    if (rewards.length >= 3 && !profile.is_upgraded) {
-      togglePricingModal(true);
-    } else {
-      props.navigation.push('AddReward');
-    }
+    // if (rewards.length >= 3 && !profile.is_upgraded) {
+    //   togglePricingModal(true);
+    // } else {
+    props.navigation.push('AddReward');
+    // }
   };
 
   const handleUsePress = (reward) => {

@@ -66,7 +66,7 @@ function* handleLogin(action) {
       yield StorageUtils.setUser(data.user);
       addTokenToHttp(data.token);
 
-      NavigationService.navigate('App');
+      NavigationService.navigate('ProfileSplash');
     } else {
       yield put({
         type: AUTH_LOGIN_ERROR,
@@ -122,7 +122,7 @@ function* handleSignUp(action) {
         addTokenToHttp(loginInfo.data.token);
 
         // you can change the navigate for navigateAndResetStack to go to a protected route
-        NavigationService.navigate('App');
+        NavigationService.navigate('ProfileSplash');
       }
     } else {
       yield put({

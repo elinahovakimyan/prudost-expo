@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
-  FlatList, View, Text, Image, TouchableOpacity, Alert, ActivityIndicator, ScrollView,
+  FlatList, View, Text, Image, TouchableOpacity, Alert,
+  ActivityIndicator, ScrollView, RefreshControl,
 } from 'react-native';
 
 import Layout from '../../../../components/shared/Layout';
@@ -161,6 +162,7 @@ const GoalDetails = (props) => {
             )) || []}
             style={styles.container}
             renderItem={renderItem}
+            refreshControl={<RefreshControl refreshing={isLoading} />}
             keyExtractor={(item) => String(item.id)}
             ListEmptyComponent={!isLoading && <EmptyCard />}
           />

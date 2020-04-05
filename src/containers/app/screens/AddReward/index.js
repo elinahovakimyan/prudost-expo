@@ -12,7 +12,8 @@ import { rewardSuggestions } from '../../data';
 import { styles } from './styles';
 
 const timeOptions = [
-  { value: 5, label: 'Less than 1 hour (5 points)' },
+  { value: 0, label: 'Less than 10 min (0 points)' },
+  { value: 5, label: '11 min - 1 hour (5 points)' },
   { value: 20, label: '1 - 5 hours (20 points)' },
   { value: 50, label: '1 full day (50 points)' },
   { value: 80, label: '2 - 7 days (80 points)' },

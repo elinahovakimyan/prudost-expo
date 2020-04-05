@@ -54,11 +54,11 @@ class Profile extends React.PureComponent {
       isLoading, profile, completedGoals, usedRewards, completedTasks,
     } = this.props;
     const links = [
-      {
-        text: 'Upgrade membership',
-        icon: require('../../../../assets/icons/upgrade.png'),
-        onPress: () => this.togglePricingModal(true),
-      },
+      // {
+      //   text: 'Upgrade membership',
+      //   icon: require('../../../../assets/icons/upgrade.png'),
+      //   onPress: () => this.togglePricingModal(true),
+      // },
       {
         text: `${completedGoals?.length} completed goals`,
         icon: require('../../../../assets/icons/goal.png'),

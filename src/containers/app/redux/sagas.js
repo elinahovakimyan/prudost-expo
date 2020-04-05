@@ -176,10 +176,11 @@ function* handleGetGoals() {
 
     if (status === 200) {
       yield put({ type: APP_GET_GOALS_SUCCESS, payload: data });
+      yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
     } else {
       yield put({ type: APP_GET_GOALS_ERROR, error: 'Unknown Error' });
+      yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
     }
-    yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   } catch (error) {
     yield put({ type: APP_GET_GOALS_ERROR, error: "Can't get goals." });
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
@@ -316,10 +317,11 @@ function* handleAddTask({ task }) {
     if (status >= 200 && status < 300) {
       yield put({ type: APP_ADD_TASK_SUCCESS });
       yield put({ type: APP_GET_GOALS_REQUEST });
+      yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
     } else {
       yield put({ type: APP_ADD_TASK_ERROR, error: 'Unknown Error' });
+      yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
     }
-    yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
   } catch (error) {
     yield put({ type: APP_ADD_TASK_ERROR, error: "Can't add a task." });
     yield put({ type: APP_CHANGE_LOADING_STATE, isLoading: false });
