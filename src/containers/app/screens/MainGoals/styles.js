@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     position: 'relative',
   },
   container: {
-    paddingHorizontal: 16,
+    // paddingHorizontal: 16,
   },
   backIcon: {
     width: 21.5,
