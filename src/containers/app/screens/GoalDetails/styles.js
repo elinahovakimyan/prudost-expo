@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
   container: {
-    paddingHorizontal: 16,
+    // paddingHorizontal: 16,
   },
   headerTitle: {
     fontSize: 20,
