@@ -14,7 +14,6 @@ function GoalCard({
 }) {
   const completedTasks = tasks.filter((task) => task.completed);
   const completedPercentage = (completedTasks.length / tasks.length) * 100;
-  console.log('completedPercentage :', completedPercentage);
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
